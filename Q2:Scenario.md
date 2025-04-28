@@ -2,7 +2,6 @@
 # **Troubleshooting Internal Web Dashboard Connectivity**
 
 
-
 ### **1. Verify DNS Resolution:**
 - **Compare resolution from /etc/resolv.conf DNS vs 8.8.8.8**  
   first thing i’ll do is check what DNS my system is using by looking inside /etc/resolv.conf 
@@ -30,12 +29,14 @@
   curl -I https://internal.example.com
   ```
   if service is up
-  ```bash
   
-  ```
+  ![Screenshot 2025-04-28 151830](https://github.com/user-attachments/assets/9fa83a0d-04dc-4d0b-aaf0-2931a0d02868)
+
+
   If broken
-  ```bash
-  ```
+  
+  ![Screenshot 2025-04-28 180549](https://github.com/user-attachments/assets/fed69f1b-a2cd-4248-950e-10e3d2e11f93)
+
   
 - **Check if the port is open using telnet**  
   ```bash
@@ -44,18 +45,21 @@
   ```
   if good :thumbsup:	
   ```bash
+  --Connected to internal.example.com.
   ```
   if not then it refares to firewall or network fail
-  ```bash
-  ```
+
+  ![Screenshot 2025-04-28 181116](https://github.com/user-attachments/assets/b09fbc00-44a8-4489-890b-46afeba3a75a)
 
 -**Check locally if something is listening using netstat**
 ```bash
 netstat -tuln | grep ':80\|:443'
 ```
-if the service is listening the out should look like that 
-```bash
-```
+if the service is listening the output should look like that 
+
+![Screenshot 2025-04-28 153328](https://github.com/user-attachments/assets/08975764-d84a-4f69-986b-03fe60b75bed)
+![Screenshot 2025-04-28 153315](https://github.com/user-attachments/assets/0ef7783f-b520-4606-a42e-c0b0d56ccfec)
+
 if there's no output that means nothing is running on server :tired_face:
 
 ### **3. Trace the Issue**
@@ -210,4 +214,6 @@ If they don’t match, it's just slow DNS propagation
   sudo nmcli con mod "network" ipv4.dns "8.8.8.8 1.1.1.1"
   sudo nmcli con up "network"
   ```
+
+
   
