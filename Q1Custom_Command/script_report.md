@@ -61,8 +61,10 @@ The trickiest part of the script was handling errors. Specifically:
 * Missing search string or filename: The script needs to catch cases where either the search string or filename is missing and provide clear error messages this was important to make the script user-friendly
 
 
+### *BONUS*
+* The --help option is included, so users can quickly see how to use the script if they’re unsure
 
-
+* Option Parsing: I used basic shell scripting logic to handle options, but I could improve this by using getopts for a more professional way to handle multiple flags and options. This would make the script more flexible and easier to expand in the future
 
 
 
